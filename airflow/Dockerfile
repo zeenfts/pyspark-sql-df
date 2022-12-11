@@ -22,7 +22,7 @@ ENV LC_ALL en_US.UTF-8
 ENV LC_CTYPE en_US.UTF-8
 ENV LC_MESSAGES en_US.UTF-8
 
-COPY requirements.txt /requirements.txt
+COPY /airflow/requirements.txt .
 
 RUN set -ex \
     && buildDeps=' \
@@ -58,7 +58,7 @@ RUN set -ex \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install -r requirements.txt \
-    && pip install --use-feature=2020-resolver apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
+    && pip install --use-feature=fast-deps apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
     && pip install apache-airflow-providers-apache-spark \
     && pip install redis \
     && if [ -n "${PYTHON_DEPS}" ]; then pip install ${PYTHON_DEPS}; fi \
@@ -116,8 +116,8 @@ ENV PATH $PATH:/usr/local/spark/bin
 
 ## Finished SPARK files and variables
 
-COPY script/entrypoint.sh /entrypoint.sh
-COPY config/airflow.cfg ${AIRFLOW_HOME}/airflow/airflow.cfg
+COPY /airflow/script/entrypoint.sh /entrypoint.sh
+COPY /airflow/config/airflow.cfg ${AIRFLOW_HOME}/airflow/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_HOME}
 RUN chmod +x entrypoint.sh

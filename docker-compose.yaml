@@ -6,16 +6,15 @@ x-common:
   # image: apache/airflow:2.3.3
   build:
     context: .
-    dockerfile: ./Dockerfile
+    dockerfile: ./airflow/Dockerfile
   user: "${AIRFLOW_UID:-50000}:0"
   env_file: 
     - .env
   volumes:
-    - ./dags:/usr/local/airflow/dags
-    - ./airflow/logs:/usr/local/airflow/logs
+    - ./dags:/usr/local/airflow/dags # DAGs folder
+    - ./logs:/usr/local/airflow/logs
     - ./plugins:/usr/local/airflow/plugins
     - ./.google/:/.google:ro
-    - ./dags:/usr/local/airflow/dags # DAGs folder
     - ./spark/app:/usr/local/spark/app # Spark Scripts (same path in airflow and spark)
     - ./spark/resources:/usr/local/spark/resources # Spark Resources (same path in airflow and spark)
 
