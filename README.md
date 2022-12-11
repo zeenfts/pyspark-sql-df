@@ -1,6 +1,10 @@
 # pyspark-sql-df
 NYC TLC Trips [Records](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) February 2021 analysis using PySpark SQL and Dataframe.
 
-Coming Soon! Orchestrate all the process.
+[spark/resources/jars](https://github.com/GoogleCloudDataproc/spark-bigquery-connector)
+.google <-- **cred.json**
 
-[spark/resources/](https://github.com/GoogleCloudDataproc/spark-bigquery-connector)
+Ref:
+[pyjaime](https://github.com/pyjaime/docker-airflow-spark)
+[cordon-thiago](https://github.com/cordon-thiago/airflow-spark)
+[puckel](https://github.com/puckel/docker-airflow)
