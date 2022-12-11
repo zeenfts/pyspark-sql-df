@@ -1,2 +1,7 @@
 *.parquet
 venv/
+*.json
+logs/
+*.csv
+__pycache__
+*.jar
