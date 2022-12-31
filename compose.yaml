@@ -1,0 +1,18 @@
+# https://github.com/jupyter/docker-stacks
+version: "3.7"
+services:
+  jupyter-pyspark:
+    # image: jupyter/pyspark-notebook:spark-3.3.1 # pyspark
+    image: jupyter/pyspark-notebook:7285848c0a11 # pyspark on Ubuntu-22.04 using Python-3.8
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile
+    container_name: jupyter-spark
+    ports:
+      - "8888:8888"
+    user: jovyan
+    volumes:
+      - ./trip_spark.ipynb:/home/jovyan/work/trip_spark.ipynb
+      - ./resources/jars:/home/jovyan/work/resources/jars # Resources (same path in airflow and spark)
+      - ./resources/data:/home/jovyan/work/resources/data # Scripts (same path in airflow and spark)
+      - ./.google/creds.json:/usr/local/.google/creds.json:ro
