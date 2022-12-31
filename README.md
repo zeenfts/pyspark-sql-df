@@ -17,4 +17,4 @@ jupyter-spark  |      or http://127.0.0.1:8888/lab?token=<AUTO_GENERATE_TOKEN_TO
 
 ## For Upload to BigQuery:
 * [spark/resources/jars](https://github.com/GoogleCloudDataproc/spark-bigquery-connector) (Download the file and put it there, only if using the second of direct way - BQ Connector).
-* [.google](https://github.com/zeenfts/pyspark-sql-df/tree/main/.google) <-- **cred.json** (For GCP BQ Permission).
+* [.google](https://github.com/zeenfts/pyspark-sql-df/tree/main/.google) <-- **creds.json** (For GCP BQ Permission).
